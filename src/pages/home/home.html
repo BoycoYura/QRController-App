@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-input type="text" [(ngModel)]="encodText"></ion-input>
+    <button ion-button block (click)="encode()">Encode</button>
+  </div>
+  <div>
+    <button ion-button block (click)="scan()">Scan</button>
+    <div *ngIf="scanData.text">
+      <label for="">Your BarCode is</label>
+      <br>
+      <span>{{scanData.text}}</span>
+    </div>
+  </div>
+</ion-content>
