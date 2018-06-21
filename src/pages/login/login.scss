@@ -1,0 +1,38 @@
+page-login {
+    ion-navbar.toolbar{
+        text-align: center;
+    }
+
+    .login-field{
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        height: 45px;
+        padding-left: 20px;
+        margin-top: 15px;
+    }
+
+    .login-btn{
+        width: 90%;
+    }
+
+    .check-div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+
+        .save-check{
+            display: block;
+            height: 45px;
+            width: 20px;
+            margin-right: 10px;
+        }
+        
+        span{
+            font-size: 18px;
+        }
+    }
+
+
+}

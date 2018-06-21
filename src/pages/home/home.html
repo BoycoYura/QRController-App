@@ -1,18 +1,19 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title><ion-icon class="menu-toogler" name="menu" (click) = "toggleMenu()"></ion-icon></ion-title>
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
+<div class="scanner-box">
+    <img src="../../assets/left.png" alt="">
+    <span class="scanner-message">Сканирование</span>
+    <img src="../../assets/right.png" alt="">
+</div>
+
   <div>
-    <ion-input type="text" [(ngModel)]="encodText"></ion-input>
-    <button ion-button block (click)="encode()">Encode</button>
-  </div>
-  <div>
-    <button ion-button block (click)="scan()">Scan</button>
+    <button class="scan-button" ion-button block (click)="scan()">Сканировать</button>
     <div *ngIf="scanData.text">
       <label for="">Your BarCode is</label>
       <br>

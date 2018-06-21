@@ -1,0 +1,35 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Авторизация пользователя</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <img src="../../assets/logo/Logo.png" alt="">
+  <form action="" (ngSubmit)="Login()">
+    <ion-list>
+        <input class="login-field" type="text" name="login" placeholder="Логин" [(ngModel)]="auth_data.login">
+
+        <input class="login-field" type="password" name="password" placeholder="Пароль" [(ngModel)]="auth_data.password">
+    </ion-list>
+
+    <div padding>
+      <button ion-button class="login-btn" color="primary" block>ВОЙТИ</button>
+    </div>
+  </form>
+
+  <div class="check-div">
+      <input type="checkbox" class="save-check">
+      <span>Сохранить пароль</span> 
+  </div>
+  
+</ion-content>

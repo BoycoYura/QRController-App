@@ -1,1 +1,38 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar>
+      </ion-toolbar>
+    </ion-header>
+  
+    <ion-content>
+        <ion-list class="menu-list">
+            <button ion-item (click)="openPage(homePage)">
+                Сканировать QR код
+            </button>
+            <button ion-item (click)="openPage(friendsPage)">
+                Проверка по номеру 
+            </button>
+            <button ion-item (click)="openPage(eventsPage)">
+                Оффлайн режим
+            </button>
+            <button ion-item (click)="closeMenu()">
+                Синнхронизация
+            </button>
+            <button ion-item (click)="closeMenu()">
+                История
+            </button>
+
+            <button ion-item (click)="closeMenu()">
+                Профиль
+            </button>
+
+            <button ion-item (click)="closeMenu()">
+                Выход
+            </button>
+          </ion-list>
+    </ion-content>
+  
+  </ion-menu>
+  
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
