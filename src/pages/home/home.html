@@ -6,14 +6,39 @@
 
 
 <ion-content padding>
-<div class="scanner-box">
-    <img src="../../assets/left.png" alt="">
-    <span class="scanner-message">Сканирование</span>
-    <img src="../../assets/right.png" alt="">
-</div>
-
+  <div class="scanner-box">
+      <img src="../../assets/left.png" alt="">
+        <ion-icon name="checkmark" class="icon-checkmark" [ngClass]="{
+          displaying: reqStatus == true
+        }"></ion-icon>
+        <ion-icon name="close" class="icon-close" [ngClass]="{
+          displaying: reqStatus == false
+        }" ></ion-icon>
+      <img src="../../assets/right.png" alt="" >
+  </div>
+  <p class="status-text" [ngClass]="{
+    visible: reqStatus == true,
+    no_displaying: reqStatus == false
+  }">Готово!</p>
+  <p class="status-text" [ngClass]="{
+    visible: reqStatus == false,
+    no_displaying: reqStatus == null
+  }">Билет не найден!</p>
   <div>
-    <button class="scan-button" ion-button block (click)="scan()">Сканировать</button>
+    <button class="transparent-btn close-btn" ion-button block [ngClass]="{
+      displaying: reqStatus == false
+    }">Закрыть</button>
+    <button class="transparent-btn close-btn scan-button" ion-button block [ngClass]="{
+      displaying: reqStatus == true
+    }">ОК</button>
+    <button class="scan-button nummer-link" ion-button block (click)="scan()" [ngClass]="{
+      displaying: reqStatus == false
+    }">Проверка по номеру </button>
+    <button class="scan-button scanner-btn" ion-button block (click)="scan()" [ngClass]="{
+      dop_margin: reqStatus == null,
+      displaying: reqStatus == null
+    }">Сканировать</button>
+    
     <div *ngIf="scanData.text">
       <label for="">Your BarCode is</label>
       <br>

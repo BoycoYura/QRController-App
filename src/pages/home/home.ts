@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { MenuController } from 'ionic-angular';
+import { NumScannerPage} from '../num-scanner/num-scanner';
 
 @Component({
   selector: 'page-home',
@@ -12,8 +13,12 @@ export class HomePage {
   encodText:string='';
   encodedData:any={};
   scanData:any= {};
+
+  public reqStatus;
+
   constructor(public navCtrl: NavController, public scanner:BarcodeScanner, public menuCtrl: MenuController) {
     menuCtrl.enable(true);
+    this.reqStatus = null;
   }
 
   openMenu() {
@@ -27,6 +32,10 @@ export class HomePage {
   toggleMenu() {
     this.menuCtrl.toggle();
   }
+
+
+
+
 
   scan(){
     this.options = {

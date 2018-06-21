@@ -1,0 +1,21 @@
+page-profile {
+    .user-info{
+        text-align: center;
+        font-weight: 300;
+
+        .user-name{
+            font-size: 30px;
+            line-height: 40px;
+            margin-bottom: 20px;
+            text-transform: capitalize;
+        }
+
+        .user-status{
+            font-size: 20px;
+            line-height: 30px;
+            text-transform: lowercase;
+            margin-top: 30px;
+            margin-bottom: 280px;
+        }
+    }
+}

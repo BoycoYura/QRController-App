@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title><ion-icon class="menu-toogler" name="menu" (click) = "toggleMenu()"></ion-icon></ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+  <ion-content padding>
+      <form action="" (ngSubmit)="ScanNumber()">
+          <ion-list>
+              <input class="number-field" type="number" name="number" [(ngModel)]="scan_data.ticket_number" placeholder="Введите номер">
+          </ion-list>
+          <p class="ticket_number">{{scan_data.ticket_number}}</p>
+          <p class="num-check"><ion-icon name="checkmark" class="icon-checkmark "></ion-icon></p>
+          <!-- <p class="num-check"><ion-icon name="close" class="icon-close "></ion-icon></p> -->
+          <p class="requset-status">Готово</p>
+          <p class="requset-status">Номер не найден</p>
+          <div padding>
+            <button ion-button class="scan-btn" type="submit" color="primary" block>Найти</button>
+            <!-- <button ion-button class="scan-btn" color="primary" block>ОК</button> -->
+            <!-- <button ion-button class="scan-btn" color="primary" block>Закрыть</button> -->
+          </div>
+        </form>
+
+        
+  </ion-content>

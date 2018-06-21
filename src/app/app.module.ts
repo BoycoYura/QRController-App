@@ -9,11 +9,18 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage} from '../pages/login/login';
 import {InterceptorModule} from './interceptor.module';
+import { NumScannerPage} from '../pages/num-scanner/num-scanner';
+import { ProfilePage } from '../pages/profile/profile';
+import { HistoryPage} from '../pages/history/history';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    NumScannerPage,
+    ProfilePage,
+    HistoryPage,
     LoginPage
   ],
   imports: [
@@ -26,6 +33,9 @@ import {InterceptorModule} from './interceptor.module';
   entryComponents: [
     MyApp,
     LoginPage,
+    NumScannerPage,
+    ProfilePage,
+    HistoryPage,
     HomePage
   ],
   providers: [

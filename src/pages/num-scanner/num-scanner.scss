@@ -1,0 +1,32 @@
+page-num-scanner {
+
+    .number-field{
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        height: 45px;
+        padding-left: 20px;
+        margin-top: 50px;
+    }
+
+    .ticket_number{
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+
+    .num-check{
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .requset-status{
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .scan-btn{
+        margin-top: 60px;
+    }
+}

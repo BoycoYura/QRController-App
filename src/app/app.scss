@@ -55,7 +55,81 @@
     margin-left: 20px;
 }
 
-
 .menu-inner ion-content{
     background: #919191;
 }
+
+.transparent-btn{
+    background: transparent;
+    border: 1px solid #919191;
+    color: #919191;
+}
+
+.icon-checkmark{
+    font-size: 120px;
+    color: green;
+}
+
+.icon-close{
+    font-size: 120px;
+    color: red;
+}
+
+.icon-checkmark,.close-btn,.icon-close{
+    display: none;
+}
+
+.scanner-btn{
+    display: none;
+}
+
+.nummer-link{
+    display: none;
+}
+
+.close-btn{
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.status-text{
+    visibility: hidden;
+    margin-top: 60px;
+}
+
+.visible{
+    visibility: visible;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.displaying{
+    display: block;
+}
+
+.no_displaying{
+    display: none;
+}
+
+
+
+
+
+
+
+.ion-page .null-margin{
+    margin-top: 150px;
+}
+
+.ion-page .false-margin{
+    margin-top: 15px;
+}
+
+.dop_margin{
+    margin-top: 80px;
+}
+
+
+

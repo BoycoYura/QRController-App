@@ -1,0 +1,22 @@
+page-history {
+    .history-list{
+        .history-item{
+            border-bottom: 1px solid grey;
+            border-top: 1px solid grey;
+            padding: 15px 40px;
+            margin: 0;
+            font-size: 16px;
+        }
+    }
+
+    .page-header{
+        padding-left: 40px;
+        font-size: 20px;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+    }
+    
+    .scroll-content{
+        padding: 0!important;
+    }
+}

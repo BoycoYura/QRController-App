@@ -6,27 +6,27 @@
   
     <ion-content>
         <ion-list class="menu-list">
-            <button ion-item (click)="openPage(homePage)">
+            <button ion-item  (click)="openPageHome()">
                 Сканировать QR код
             </button>
-            <button ion-item (click)="openPage(friendsPage)">
+            <button ion-item (click)="openPageNumber()">
                 Проверка по номеру 
             </button>
-            <button ion-item (click)="openPage(eventsPage)">
+            <button ion-item (click)="openPage()">
                 Оффлайн режим
             </button>
-            <button ion-item (click)="closeMenu()">
+            <button ion-item (click)="openPage()">
                 Синнхронизация
             </button>
-            <button ion-item (click)="closeMenu()">
+            <button ion-item (click)="openHistory()">
                 История
             </button>
 
-            <button ion-item (click)="closeMenu()">
+            <button ion-item (click)="openProfile()">
                 Профиль
             </button>
 
-            <button ion-item (click)="closeMenu()">
+            <button ion-item (click)="openPage()">
                 Выход
             </button>
           </ion-list>

@@ -1,8 +1,15 @@
 page-home {
     .scanner-box{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 20px;
+
+        img{
+            height: 200px;
+        }
 
         span{
             font-size: 18px;
@@ -10,7 +17,23 @@ page-home {
         }
     }
 
-    .scan-button{
-        margin-top: 150px;
+    .status-text{
+        text-align: center;
+        font-size: 16px;
     }
+
+    .is-active{
+        background: red;
+    }
+
+    .false-margin-qr{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .dop-margin{
+        margin-bottom: 40px;
+    }
+
+    
 }
