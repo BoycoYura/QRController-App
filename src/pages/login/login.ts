@@ -1,16 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import 'rxjs/add/operator/toPromise';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { HomePage } from '../home/home';
-import {RequestOptions, Request, Headers } from '@angular/http';
-import {InterceptorModule} from '../../app/interceptor.module';
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -24,48 +16,37 @@ export class LoginPage {
     "password": ""
   };
 
-  private _options = { headers: new HttpHeaders({ 'Access-Control-Allow-Origin': 'http://xn--c1adanjfljige2b7b5c.xn--80adxhks/api/auth' }) };
-
-  
-  
-
-  private apiUrl ='http://xn--c1adanjfljige2b7b5c.xn--80adxhks/api/auth';
+  private apiUrl ='/api/auth';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private httpClient: HttpClient) {
   }
 
-  
 
   Login(){
+    var formData = new FormData();
+    formData.append("login", this.auth_data.login);
+    formData.append("password", this.auth_data.password);
 
-    // let headers = new HttpHeaders();
+    this.httpClient.post(this.apiUrl,formData).subscribe(
+      res => {
+        var serialObj = JSON.stringify(res);
+        localStorage.setItem("usInfo", serialObj);
+        console.log("Logined user info:");
+        console.log(res);
+        alert("Welcome to App");
+        this.navCtrl.push(HomePage);
+      },
+      err => {
+        var er_status = err.status;
 
-    // headers.append('Content-Type', 'application/json');
-    // headers.append('Accept', 'application/json');
-  
-    // headers.append('Access-Control-Allow-Origin', 'http://progulki.nermolrx.beget.tech/api');
-    // headers.append('Access-Control-Allow-Credentials', 'true');
-  
-    // headers.append('GET', 'POST', 'OPTIONS');
+        if(er_status == '401'){
+          alert("Вы сделали ошибку при вводе логина или пароля, попробуйте ещё раз");
+        }
 
-    console.log("HEADERS:");
-    console.log(this._options);
-
-    // this.httpClient.post(this.apiUrl,this.auth_data,this._options).subscribe(
-    //   res => {
-    //     var serialObj = JSON.stringify(res);
-    //     localStorage.setItem("usInfo", serialObj);
-    //     console.log("Logined user info:");
-    //     console.log(res)
-    //     this.navCtrl.push(HomePage);
-    //   },
-    //   err => {
-    //     console.log(err.error);
-    //     alert("Fail");
-    //   });
-      this.navCtrl.push(HomePage);
-      console.log('Login action End');
-    
+        if(er_status == '406'){
+          alert("Поля логин и пароль не должны быть пустыми, попробуйте ещё раз");
+        }
+      });
   }
 
   ionViewDidLoad() {

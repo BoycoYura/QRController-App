@@ -9,11 +9,12 @@ page-num-scanner {
         margin-top: 50px;
     }
 
-    .ticket_number{
-        text-align: center;
-        font-size: 20px;
-        margin-bottom: 40px;
-        margin-top: 40px;
+    .icon-checkmark,.icon-close{
+        display: block;
+    }
+
+    .requset-status{
+        visibility: hidden
     }
 
     .num-check{

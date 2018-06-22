@@ -10,11 +10,22 @@
           <ion-list>
               <input class="number-field" type="number" name="number" [(ngModel)]="scan_data.ticket_number" placeholder="Введите номер">
           </ion-list>
-          <p class="ticket_number">{{scan_data.ticket_number}}</p>
-          <p class="num-check"><ion-icon name="checkmark" class="icon-checkmark "></ion-icon></p>
-          <!-- <p class="num-check"><ion-icon name="close" class="icon-close "></ion-icon></p> -->
-          <p class="requset-status">Готово</p>
-          <p class="requset-status">Номер не найден</p>
+          <p class="ticket_number" [ngClass]="{
+            visible: number_ticket !== null
+          }">1250125-125</p>
+          <p class="num-check"><ion-icon name="checkmark" class="icon-checkmark" [ngClass]="{
+            visible: reqStatus == true
+          }"></ion-icon></p>
+          <p class="num-check"><ion-icon name="close" class="icon-close" [ngClass]="{
+            visible: reqStatus == false,
+            no_displaying: reqStatus == true
+          }"></ion-icon></p>
+          <p class="requset-status" [ngClass]="{
+            visible: reqStatus == true
+          }">Готово</p>
+          <p class="requset-status" [ngClass]="{
+            visible: reqStatus == false
+          }">Номер не найден</p>
           <div padding>
             <button ion-button class="scan-btn" type="submit" color="primary" block>Найти</button>
             <!-- <button ion-button class="scan-btn" color="primary" block>ОК</button> -->

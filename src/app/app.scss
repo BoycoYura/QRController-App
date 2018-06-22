@@ -79,6 +79,10 @@
     display: none;
 }
 
+.num-check{
+    visibility: hidden;
+}
+
 .scanner-btn{
     display: none;
 }
@@ -96,6 +100,15 @@
     visibility: hidden;
     margin-top: 60px;
 }
+
+.ticket_number{
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    visibility: hidden;
+}
+
 
 .visible{
     visibility: visible;

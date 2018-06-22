@@ -24,11 +24,16 @@ export class NumScannerPage {
     "ticket_number": ""
   };
 
+  public reqStatus;
+  public number_ticket;
+
   private _options = { headers: new HttpHeaders({ 'Access-Control-Allow-Origin': 'http://xn--c1adanjfljige2b7b5c.xn--80adxhks/api/auth' }) };
 
   private apiUrl ='http://xn--c1adanjfljige2b7b5c.xn--80adxhks/api/auth';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public menuCtrl: MenuController,private httpClient: HttpClient) {
+    this.number_ticket = true;
+    this.reqStatus =  true;
   }
 
   openMenu() {

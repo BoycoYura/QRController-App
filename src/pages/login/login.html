@@ -15,7 +15,7 @@
 
 <ion-content padding>
   <img src="../../assets/Logo.png" alt="">
-  <form action="" (ngSubmit)="Login()">
+  <form action="" (ngSubmit)="Login()" enctype="multipart/form-data">
     <ion-list>
         <input class="login-field" type="text" name="login" placeholder="Логин" [(ngModel)]="auth_data.login">
 
