@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { MenuController } from 'ionic-angular';
 import { NumScannerPage} from '../num-scanner/num-scanner';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'page-home',
@@ -16,7 +17,9 @@ export class HomePage {
 
   public reqStatus;
 
-  constructor(public navCtrl: NavController, public scanner:BarcodeScanner, public menuCtrl: MenuController) {
+  private apiUrl ='/api/check_ticket?access_token=';
+
+  constructor(public navCtrl: NavController, public scanner:BarcodeScanner, public menuCtrl: MenuController,private httpClient: HttpClient) {
     menuCtrl.enable(true);
     this.reqStatus = null;
   }
@@ -33,10 +36,6 @@ export class HomePage {
     this.menuCtrl.toggle();
   }
 
-
-
-
-
   scan(){
     this.options = {
       prompt: 'Scan you BarCode'
@@ -44,6 +43,27 @@ export class HomePage {
 
     this.scanner.scan(this.options).then((data)=>{
       this.scanData = data;
+
+      var access_token = JSON.parse( localStorage.getItem("usInfo")) ;
+
+      this.httpClient.get(this.apiUrl+access_token.token+"&"+"ticket_id="+this.scanData.text).subscribe(
+        res => {
+          var serialObj = JSON.stringify(res);
+          console.log("Info sent success:");
+          console.log(res);
+          this.reqStatus =  true;
+        },
+        err => {
+          var er_status = err.status;
+          
+          if(er_status == '404'){
+            this.reqStatus =  false;
+          }
+  
+          if(er_status == '500'){
+            alert("Ошибка сервера");
+          }
+        });
     },(err)=>{
       console.log("Error:",err);
     })
