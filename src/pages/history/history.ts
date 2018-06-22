@@ -15,7 +15,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
   templateUrl: 'history.html',
 })
 export class HistoryPage {
-  private apiUrl ='/api/ticket_history?access_token=';
+  private apiUrl ='/api/tickets_history?access_token=';
 
   public Alltickets;
 
@@ -38,6 +38,9 @@ export class HistoryPage {
       res => {
         this.Alltickets = res;
 
+        if(this.Alltickets.tickets.length == 0){
+          alert("History is empty");
+        }
         console.log(res);
       },
       err => {

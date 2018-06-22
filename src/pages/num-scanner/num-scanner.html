@@ -8,17 +8,19 @@
   <ion-content padding>
       <form action="" (ngSubmit)="ScanNumber()">
           <ion-list>
-              <input class="number-field" type="number" name="number" [(ngModel)]="scan_data.ticket_number" placeholder="Введите номер">
+              <input class="number-field" type="number" name="number" [(ngModel)]="ticket_id" placeholder="Введите номер">
           </ion-list>
           <p class="ticket_number" [ngClass]="{
             visible: number_ticket !== null
-          }">1250125-125</p>
-          <p class="num-check"><ion-icon name="checkmark" class="icon-checkmark" [ngClass]="{
-            visible: reqStatus == true
+          }">{{ticket_id}}</p>
+          <p class="num-check"><ion-icon name="checkmark" class="icon-checkmark true-status" [ngClass]="{
+            visible: reqStatus == true,
+            displaying: reqStatus == true
           }"></ion-icon></p>
-          <p class="num-check"><ion-icon name="close" class="icon-close" [ngClass]="{
+          <p class="num-check"><ion-icon name="close" class="icon-close false-status" [ngClass]="{
             visible: reqStatus == false,
-            no_displaying: reqStatus == true
+            no_displaying: reqStatus == true,
+            displaying: reqStatus == false
           }"></ion-icon></p>
           <p class="requset-status" [ngClass]="{
             visible: reqStatus == true

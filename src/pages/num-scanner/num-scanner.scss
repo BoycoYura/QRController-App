@@ -9,14 +9,6 @@ page-num-scanner {
         margin-top: 50px;
     }
 
-    .icon-checkmark,.icon-close{
-        display: block;
-    }
-
-    .requset-status{
-        visibility: hidden
-    }
-
     .num-check{
         margin: 0 auto;
         text-align: center;
@@ -27,7 +19,7 @@ page-num-scanner {
         text-align: center;
     }
 
-    .scan-btn{
-        margin-top: 60px;
+    .false-status{
+        display: none;
     }
 }
