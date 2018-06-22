@@ -9,13 +9,17 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage({
+  name: 'history',
+  segment: 'history-path'
+})
 @Component({
   selector: 'page-history',
   templateUrl: 'history.html',
 })
 export class HistoryPage {
-  private apiUrl ='/api/tickets_history?access_token=';
+  private apiUrl ='http://greenworld.by/api/tickets_history?access_token=';
+  // private apiUrl ='/api/tickets_history?access_token=';
 
   public Alltickets;
 

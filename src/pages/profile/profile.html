@@ -10,5 +10,5 @@
     <p class="user-name">{{firstname}} <br> {{lastname}}</p>
     <p class="user-status">{{position}}</p>
   </div>
-  <button ion-button class="scan-btn" color="primary" block>Выйти</button>
+  <button ion-button class="scan-btn" (click)="logout()" color="primary" block>Выйти</button>
 </ion-content>

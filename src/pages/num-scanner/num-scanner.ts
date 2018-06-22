@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the NumScannerPage page.
  *
@@ -24,8 +25,9 @@ export class NumScannerPage {
   public number_ticket;
 
   public ticket_id;
-
-  private apiUrl ='/api/check_ticket?access_token=';
+  public isDisabled = false;
+  private apiUrl ='http://greenworld.by/api/check_ticket?access_token=';
+  // private apiUrl ='/api/check_ticket?access_token=';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public menuCtrl: MenuController,private httpClient: HttpClient) {
     this.number_ticket = null;
@@ -44,7 +46,11 @@ export class NumScannerPage {
     this.menuCtrl.toggle();
   }
 
-  
+  refresh(){
+    this.navCtrl.setRoot(this.navCtrl.getActive().component);
+    this.isDisabled = false;
+  }
+
 //Добавить отправку токена авторизации
   ScanNumber(){
     var access_token = JSON.parse( localStorage.getItem("usInfo")) ;
@@ -56,10 +62,13 @@ export class NumScannerPage {
         console.log(res);
         this.number_ticket = true;
         this.reqStatus =  true;
+        this.isDisabled = true;
+        console.log(this.isDisabled);
       },
       err => {
         var er_status = err.status;
         this.number_ticket = true;
+        this.isDisabled = true;
         
         if(er_status == '404'){
           this.reqStatus =  false;

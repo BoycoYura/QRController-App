@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { LoginPage} from '../login/login';
 /**
  * Generated class for the ProfilePage page.
  *
@@ -16,7 +17,11 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-  private apiUrl ='/api/user?access_token=';
+  private apiUrl ='http://greenworld.by/api/user?access_token=';
+  // private apiUrl ='/api/user?access_token=';
+
+  private apiLog ='http://greenworld.by/api/user/logout';
+  // private apiLog = '/api/user/logout';
 
   public profile_info;
 
@@ -39,8 +44,7 @@ export class ProfilePage {
   }
 
   getProfile(){
-
-    var access_token = JSON.parse( localStorage.getItem("usInfo")) ;
+    var access_token = JSON.parse( localStorage.getItem("usInfo"));
 
     this.httpClient.get(this.apiUrl+access_token.token).subscribe(
       res => {
@@ -58,6 +62,23 @@ export class ProfilePage {
         if(er_status == '500'){
           alert("Ошибка сервера");
         }
+      });
+  }
+
+  logout(){
+    var access_token = JSON.parse( localStorage.getItem("usInfo")) ;
+
+    var formData = new FormData();
+    formData.append("access_token", access_token.token);
+
+    this.httpClient.post(this.apiLog,formData).subscribe(
+      res => {
+        console.log(res);
+        this.navCtrl.push(LoginPage);
+      },
+      err => {
+        var er_status = err.status;
+        alert(er_status);
       });
   }
 

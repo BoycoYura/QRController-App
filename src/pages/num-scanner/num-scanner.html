@@ -8,9 +8,9 @@
   <ion-content padding>
       <form action="" (ngSubmit)="ScanNumber()">
           <ion-list>
-              <input class="number-field" type="number" name="number" [(ngModel)]="ticket_id" placeholder="Введите номер">
+              <input class="number-field" disabled="{{isDisabled}}" type="number" name="number" [(ngModel)]="ticket_id" placeholder="Введите номер">
           </ion-list>
-          <p class="ticket_number" [ngClass]="{
+          <p class="ticket_number"  [ngClass]="{
             visible: number_ticket !== null
           }">{{ticket_id}}</p>
           <p class="num-check"><ion-icon name="checkmark" class="icon-checkmark true-status" [ngClass]="{
@@ -29,9 +29,19 @@
             visible: reqStatus == false
           }">Номер не найден</p>
           <div padding>
-            <button ion-button class="scan-btn" type="submit" color="primary" block>Найти</button>
-            <!-- <button ion-button class="scan-btn" color="primary" block>ОК</button> -->
-            <!-- <button ion-button class="scan-btn" color="primary" block>Закрыть</button> -->
+
+            <a ion-button (click)="refresh()" class="scan-btn" color="primary" block [ngClass]="{
+              displaying: reqStatus == true,
+              no_displaying: reqStatus == false,
+              hidden: reqStatus == null
+            }">ОК</a>
+            <a ion-button (click)="refresh()" class="scan-btn" color="primary" block [ngClass]="{
+              displaying: reqStatus == false,
+              hidden: reqStatus == null
+            }">Закрыть</a>
+            <button ion-button class="scan-btn" type="submit" color="primary" block [ngClass]="{
+              no_displaying: reqStatus !== null
+            }">Найти</button>
           </div>
         </form>
 

@@ -14,10 +14,10 @@ export class HomePage {
   encodText:string='';
   encodedData:any={};
   scanData:any= {};
-
   public reqStatus;
 
-  private apiUrl ='/api/check_ticket?access_token=';
+  private apiUrl ='http://greenworld.by/api/check_ticket?access_token=';
+  // private apiUrl ='/api/check_ticket?access_token=';
 
   constructor(public navCtrl: NavController, public scanner:BarcodeScanner, public menuCtrl: MenuController,private httpClient: HttpClient) {
     menuCtrl.enable(true);
@@ -34,6 +34,15 @@ export class HomePage {
  
   toggleMenu() {
     this.menuCtrl.toggle();
+  }
+
+  refresh(){
+    // this.navCtrl.setRoot(this.navCtrl.getActive().component);
+    this.reqStatus = null;
+  }
+
+  toNummerPage(){
+    this.navCtrl.push(NumScannerPage);
   }
 
   scan(){

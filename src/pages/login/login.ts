@@ -16,7 +16,8 @@ export class LoginPage {
     "password": ""
   };
 
-  private apiUrl ='/api/auth';
+  private apiUrl ='http://greenworld.by/api/auth';
+  // private apiUrl ='/api/auth';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private httpClient: HttpClient) {
   }
@@ -38,6 +39,7 @@ export class LoginPage {
       },
       err => {
         var er_status = err.status;
+        this.auth_data.password = '';
 
         if(er_status == '401'){
           alert("Вы сделали ошибку при вводе логина или пароля, попробуйте ещё раз");

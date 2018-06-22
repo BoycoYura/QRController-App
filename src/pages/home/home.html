@@ -25,15 +25,15 @@
     no_displaying: reqStatus == null
   }">Билет не найден!</p>
   <div>
-    <button class="transparent-btn close-btn" ion-button block [ngClass]="{
+    <a (click)="refresh()" class="transparent-btn close-btn" ion-button block [ngClass]="{
       displaying: reqStatus == false
-    }">Закрыть</button>
-    <button class="transparent-btn close-btn scan-button" ion-button block [ngClass]="{
+    }">Закрыть</a>
+    <a (click)="refresh()" class=" close-btn scan-button" ion-button block [ngClass]="{
       displaying: reqStatus == true
-    }">ОК</button>
-    <button class="scan-button nummer-link" ion-button block (click)="scan()" [ngClass]="{
+    }">ОК</a>
+    <a class="scan-button nummer-link" ion-button block (click)="toNummerPage()" [ngClass]="{
       displaying: reqStatus == false
-    }">Проверка по номеру </button>
+    }">Проверка по номеру </a>
     <button class="scan-button scanner-btn" ion-button block (click)="scan()" [ngClass]="{
       dop_margin: reqStatus == null,
       displaying: reqStatus == null
