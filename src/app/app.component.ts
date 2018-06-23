@@ -22,7 +22,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public menuCtrl: MenuController) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,public menuCtrl: MenuController,public plt: Platform) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -53,6 +53,10 @@ export class MyApp {
   openHistory(){
     this.nav.push(HistoryPage);
     this.toggleMenu();
+  }
+
+  closeApp(){
+    this.plt.exitApp(); 
   }
 
 }

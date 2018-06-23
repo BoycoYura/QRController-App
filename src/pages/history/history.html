@@ -8,9 +8,7 @@
 <ion-content padding>
   <p class="page-header">Билеты</p>
 
-  <!-- <div class="history-list" *ngFor="let ticket of Alltickets"> -->
-  <div class="history-list">
-    <!-- <p class="history-item">{{ticket}}</p> -->
-    <p class="history-item">{{empty_history}}</p>
+  <div class="history-list" >
+    <p class="history-item" *ngFor="let ticket of TicketsMas">Билет № {{ticket.id}}</p>
   </div>
 </ion-content>

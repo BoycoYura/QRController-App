@@ -34,7 +34,6 @@ export class LoginPage {
         localStorage.setItem("usInfo", serialObj);
         console.log("Logined user info:");
         console.log(res);
-        alert("Welcome to App");
         this.navCtrl.push(HomePage);
       },
       err => {

@@ -7,14 +7,14 @@
 
 <ion-content padding>
   <div class="scanner-box">
-      <img src="../../assets/left.png" alt="">
+      <img src="./assets/imgs/left.png" alt="">
         <ion-icon name="checkmark" class="icon-checkmark" [ngClass]="{
           displaying: reqStatus == true
         }"></ion-icon>
         <ion-icon name="close" class="icon-close" [ngClass]="{
           displaying: reqStatus == false
         }" ></ion-icon>
-      <img src="../../assets/right.png" alt="" >
+      <img src="./assets/imgs/right.png" alt="" >
   </div>
   <p class="status-text" [ngClass]="{
     visible: reqStatus == true,

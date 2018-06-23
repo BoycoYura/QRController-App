@@ -21,8 +21,9 @@ export class HistoryPage {
   private apiUrl ='http://greenworld.by/api/tickets_history?access_token=';
   // private apiUrl ='/api/tickets_history?access_token=';
 
+  public TicketsMas;
+  
   public Alltickets;
-
   constructor(public navCtrl: NavController, public navParams: NavParams,public menuCtrl: MenuController, private httpClient: HttpClient) {
   }
 
@@ -41,6 +42,11 @@ export class HistoryPage {
     this.httpClient.get(this.apiUrl+access_token.token).subscribe(
       res => {
         this.Alltickets = res;
+
+        this.TicketsMas = this.Alltickets.tickets;
+
+        console.log("Tickets All:");
+        console.log(this.TicketsMas );
 
         if(this.Alltickets.tickets.length == 0){
           alert("History is empty");

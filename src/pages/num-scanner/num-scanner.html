@@ -8,7 +8,7 @@
   <ion-content padding>
       <form action="" (ngSubmit)="ScanNumber()">
           <ion-list>
-              <input class="number-field" disabled="{{isDisabled}}" type="number" name="number" [(ngModel)]="ticket_id" placeholder="Введите номер">
+              <input class="number-field" disabled="{{isDisabled}}" type="text" name="number" [(ngModel)]="ticket_id" placeholder="Введите номер">
           </ion-list>
           <p class="ticket_number"  [ngClass]="{
             visible: number_ticket !== null
@@ -37,6 +37,7 @@
             }">ОК</a>
             <a ion-button (click)="refresh()" class="scan-btn" color="primary" block [ngClass]="{
               displaying: reqStatus == false,
+              no_displaying: reqStatus == true,
               hidden: reqStatus == null
             }">Закрыть</a>
             <button ion-button class="scan-btn" type="submit" color="primary" block [ngClass]="{
