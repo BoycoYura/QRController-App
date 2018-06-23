@@ -20,4 +20,13 @@ page-history {
         padding: 0!important;
         overflow-y: scroll;
     }
+
+    .ngx-pagination {
+        margin-left: 0;
+        margin-bottom: 1rem;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
 }

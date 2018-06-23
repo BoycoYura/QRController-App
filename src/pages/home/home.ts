@@ -23,9 +23,11 @@ export class HomePage {
   public BiletState;
 
   private apiUrl ='http://greenworld.by/api/check_ticket?access_token=';
-  // private apiUrl ='/api/check_ticket?access_token=';
+  private apiCheck ='http://greenworld.by/api/ticket_confirm';
 
-  private apiCheck = '/api/ticket_confirm';
+  // private apiUrl ='/api/check_ticket?access_token=';
+  // private apiCheck = '/api/ticket_confirm';
+  
 
   constructor(public navCtrl: NavController, public scanner:BarcodeScanner, public menuCtrl: MenuController,private httpClient: HttpClient) {
     menuCtrl.enable(true);
@@ -71,20 +73,9 @@ export class HomePage {
         res => {
           console.log("Post status:")
           console.log(res);
-
-          this.BiletState = res;
-
-          if(this.BiletState.state == 'used'){
-            this.reqStatus =  false;
-          }
-  
-          if(this.BiletState.state == 'new'){
-            this.reqStatus =  true;
-          }
         },
         err => {
           var er_status = err.status;
-          alert(er_status);
 
           if(er_status == '404'){
             this.reqStatus =  false;
@@ -95,24 +86,33 @@ export class HomePage {
           }
         });
 
-      this.httpClient.get(this.apiUrl+access_token.token+"&"+"ticket_id="+this.scanData.text).subscribe(
-        res => {
-          var serialObj = JSON.stringify(res);
-          console.log("Info sent success:");
-          console.log(res);
-          this.reqStatus =  true;
-        },
-        err => {
-          var er_status = err.status;
+        this.httpClient.get(this.apiUrl+access_token.token+"&"+"ticket_id="+this.scanData.text).subscribe(
+                res => {
+                  var serialObj = JSON.stringify(res);
+                  console.log("Info sent success:");
+                  console.log(res);
+
+                  this.BiletState = res;
+
+                  if(this.BiletState.state == 'used'){
+                    this.reqStatus =  false;
+                  }
           
-          if(er_status == '404'){
-            this.reqStatus =  false;
-          }
-  
-          if(er_status == '500'){
-            alert("Ошибка сервера");
-          }
-        });
+                  if(this.BiletState.state == 'new'){
+                    this.reqStatus =  true;
+                  }
+                },
+                err => {
+                  var er_status = err.status;
+                  
+                  if(er_status == '404'){
+                    this.reqStatus =  false;
+                  }
+          
+                  if(er_status == '500'){
+                    alert("Ошибка сервера");
+                  }
+                });
     },(err)=>{
       console.log("Error:",err);
     })

@@ -26,10 +26,11 @@ export class NumScannerPage {
 
   public ticket_id;
   public isDisabled = false;
-  // private apiUrl ='http://greenworld.by/api/check_ticket?access_token=';
-  private apiUrl ='/api/check_ticket?access_token=';
+  private apiUrl ='http://greenworld.by/api/check_ticket?access_token=';
+  // private apiUrl ='/api/check_ticket?access_token=';
 
-  private apiCheck = '/api/ticket_confirm';
+  // private apiCheck = '/api/ticket_confirm';
+  private apiCheck ='http://greenworld.by/api/ticket_confirm';
 
   public BiletState;
 
@@ -70,7 +71,6 @@ export class NumScannerPage {
       },
       err => {
         var er_status = err.status;
-        alert(er_status);
       });
 
     this.httpClient.get(this.apiUrl+access_token.token+"&"+"ticket_id="+this.ticket_id).subscribe(

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MenuController } from 'ionic-angular';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { ModalController } from 'ionic-angular';
+import {BiletInfoComponent } from '../../components/bilet-info/bilet-info';
 /**
  * Generated class for the HistoryPage page.
  *
@@ -18,13 +20,13 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
   templateUrl: 'history.html',
 })
 export class HistoryPage {
-  private apiUrl ='http://greenworld.by/api/tickets_history?access_token=';
-  // private apiUrl ='/api/tickets_history?access_token=';
+  // private apiUrl ='http://greenworld.by/api/tickets_history?access_token=';
+  private apiUrl ='/api/tickets_history?access_token=';
 
   public TicketsMas;
   
   public Alltickets;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public menuCtrl: MenuController, private httpClient: HttpClient) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public menuCtrl: MenuController, private httpClient: HttpClient,public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
@@ -33,6 +35,11 @@ export class HistoryPage {
 
   toggleMenu() {
     this.menuCtrl.toggle();
+  }
+
+  openInfo(ticket_id){
+    const modal = this.modalCtrl.create(BiletInfoComponent,{ ticketId: ticket_id });
+    modal.present();
   }
 
   getTickets(){
@@ -44,6 +51,7 @@ export class HistoryPage {
         this.Alltickets = res;
 
         this.TicketsMas = this.Alltickets.tickets;
+        
 
         console.log("Tickets All:");
         console.log(this.TicketsMas );

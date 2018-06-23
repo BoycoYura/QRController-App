@@ -23,7 +23,13 @@
   <p class="status-text" [ngClass]="{
     visible: reqStatus == false,
     no_displaying: reqStatus == null
-  }">Билет не найден!</p>
+  }">Билет использован!</p>
+
+<p class=" not-found" [ngClass]="{
+    displaying: notFound == true,
+    no_displaying: notFound == null
+  }">Билет не найден в базе!</p>
+
   <div>
     <a (click)="refresh()" class="transparent-btn close-btn" ion-button block [ngClass]="{
       displaying: reqStatus == false

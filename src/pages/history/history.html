@@ -9,6 +9,7 @@
   <p class="page-header">Билеты</p>
 
   <div class="history-list" >
-    <p class="history-item" *ngFor="let ticket of TicketsMas">Билет № {{ticket.id}}</p>
+    <p class="history-item" *ngFor="let ticket of TicketsMas | paginate: { itemsPerPage: 7, currentPage: p}" (click)="openInfo((ticket.id))">Билет № {{ticket.id}}</p>
   </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </ion-content>

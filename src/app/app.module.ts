@@ -11,7 +11,8 @@ import { LoginPage} from '../pages/login/login';
 import { NumScannerPage} from '../pages/num-scanner/num-scanner';
 import { ProfilePage } from '../pages/profile/profile';
 import { HistoryPage} from '../pages/history/history';
-
+import {NgxPaginationModule} from 'ngx-pagination';
+import {BiletInfoComponent } from '../components/bilet-info/bilet-info';
 
 @NgModule({
   declarations: [
@@ -20,11 +21,13 @@ import { HistoryPage} from '../pages/history/history';
     NumScannerPage,
     ProfilePage,
     HistoryPage,
+    BiletInfoComponent,
     LoginPage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    NgxPaginationModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -34,6 +37,7 @@ import { HistoryPage} from '../pages/history/history';
     NumScannerPage,
     ProfilePage,
     HistoryPage,
+    BiletInfoComponent,
     HomePage
   ],
   providers: [

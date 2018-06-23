@@ -1,0 +1,18 @@
+bilet-info {
+    .bilet-item{
+        display: flex;
+        justify-content: space-around;
+
+        border-bottom: 1px solid #329B32;
+        border-top: 1px solid #329B32;
+
+        .bilet-info-single{
+            width: 40%;
+            font-size: 16px;
+        }
+    }
+
+    .scroll-content{
+        overflow-y: scroll;
+    }
+}
